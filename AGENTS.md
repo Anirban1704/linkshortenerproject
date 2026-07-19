@@ -16,6 +16,7 @@ This repository is a Next.js application for a link shortener with Clerk authent
 - Use the @/ import alias for workspace-relative imports.
 - Favor Tailwind utility classes for styling and avoid introducing ad-hoc CSS when a Tailwind-based solution already fits.
 - Keep components focused and composable rather than tightly coupling unrelated UI.
+- Never create or use middleware.ts for this project; this approach is deprecated in the Next.js version used here, and the supported pattern is to use proxy.ts for Clerk middleware configuration.
 
 ## TypeScript and Code Quality
 - Write strict, typed TypeScript and avoid any when possible.
