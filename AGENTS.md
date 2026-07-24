@@ -1,6 +1,6 @@
 # Agent Instructions for This Repository
 
-This repository is a Next.js application for a link shortener with Clerk authentication, Drizzle ORM, TypeScript, and Tailwind-based UI components. AI agents working in this codebase should follow the repository-specific guidance in the docs directory before making changes.
+This repository is a Next.js application for a link shortener with Clerk authentication, Drizzle ORM, TypeScript, and Tailwind-based UI components.
 
 ## Primary Expectations
 - Follow the existing architecture and conventions instead of introducing unrelated patterns.
@@ -38,10 +38,3 @@ This repository is a Next.js application for a link shortener with Clerk authent
 4. Verify the result with linting or build checks before declaring the work complete.
 5. If a task requires a broader refactor, explain the scope and rationale clearly.
 
-## Documentation Split
-The detailed guidance for this repository is organized into separate markdown files under docs/directory. It is incredibly important to ALWAYS read the relevant individual instructions files within `/docs` BEFORE generating any code.
-
-- Authentication and access requirements: docs/authentication.md
-- UI component requirements: docs/ui-standards.md
-
-Agents should consult these files first and treat them as the source of truth for repository-specific behavior.

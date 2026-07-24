@@ -1,20 +1,19 @@
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import {
+  Dialog,
+  DialogCloseButton,
+  DialogContent,
+  DialogDescription,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { getUserShortLinks } from "@/data/links";
-
-function formatDate(value: Date | string | null | undefined) {
-  if (!value) {
-    return "—";
-  }
-
-  const date = value instanceof Date ? value : new Date(value);
-
-  return new Intl.DateTimeFormat("en", {
-    dateStyle: "medium",
-    timeStyle: "short",
-  }).format(date);
-}
+import { CreateLinkForm } from "./CreateLinkForm";
+import { LinkListItem } from "./LinkListItem";
 
 export default async function DashboardPage() {
   const { userId } = await auth();
@@ -26,20 +25,41 @@ export default async function DashboardPage() {
   const links = await getUserShortLinks(userId);
 
   return (
-    <main className="flex min-h-screen flex-col items-start justify-start bg-zinc-950 px-6 py-16 font-sans text-zinc-50">
-      <div className="w-full max-w-5xl rounded-2xl border border-zinc-800 bg-zinc-900 p-10 shadow-sm">
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <h1 className="text-3xl font-semibold tracking-tight text-zinc-50">
-              Dashboard
-            </h1>
-            <p className="mt-3 text-lg leading-8 text-zinc-400">
-              Here are the short links created with your account.
-            </p>
-          </div>
+    <main className="flex min-h-screen flex-col items-center justify-start bg-zinc-950 px-6 py-16 font-sans text-zinc-50">
+      <div className="w-full max-w-5xl rounded-[2rem] border border-zinc-800 bg-zinc-900/95 p-8 shadow-[0_30px_80px_rgba(0,0,0,0.25)] sm:p-10">
+        <div className="flex flex-col items-center gap-4 border-b border-zinc-800 pb-6 text-center">
+          <h1 className="text-4xl font-semibold tracking-tight text-zinc-50 sm:text-5xl">
+            My Links
+          </h1>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <div className="rounded-full border border-zinc-800 bg-zinc-950 px-3 py-1 text-sm text-zinc-400">
+              {links.length} {links.length === 1 ? "link" : "links"}
+            </div>
 
-          <div className="rounded-full border border-zinc-800 bg-zinc-950 px-3 py-1 text-sm text-zinc-400">
-            {links.length} {links.length === 1 ? "link" : "links"}
+            <Dialog>
+              <DialogTrigger
+                className={cn(
+                  buttonVariants({ variant: "default", size: "sm" }),
+                  "text-sm"
+                )}
+              >
+                Create link
+              </DialogTrigger>
+              <DialogContent>
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <DialogTitle>Create a new short link</DialogTitle>
+                    <DialogDescription>
+                      Add a destination URL and a short code that will be used for your new link.
+                    </DialogDescription>
+                  </div>
+                  <DialogCloseButton />
+                </div>
+                <div className="mt-6">
+                  <CreateLinkForm />
+                </div>
+              </DialogContent>
+            </Dialog>
           </div>
         </div>
 
@@ -50,30 +70,7 @@ export default async function DashboardPage() {
         ) : (
           <ul className="mt-8 space-y-4">
             {links.map((link) => (
-              <li
-                key={link.id}
-                className="rounded-xl border border-zinc-800 bg-zinc-950/70 p-5"
-              >
-                <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-                  <div className="min-w-0">
-                    <p className="text-sm font-medium text-zinc-100">
-                      /{link.shortCode}
-                    </p>
-                    <a
-                      href={link.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="mt-1 block truncate text-sm text-zinc-400 transition hover:text-zinc-200"
-                    >
-                      {link.url}
-                    </a>
-                  </div>
-
-                  <div className="text-sm text-zinc-500">
-                    <p>Created {formatDate(link.createdAt)}</p>
-                  </div>
-                </div>
-              </li>
+              <LinkListItem key={link.id} link={link} />
             ))}
           </ul>
         )}

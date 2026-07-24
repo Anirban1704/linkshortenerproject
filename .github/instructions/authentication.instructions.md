@@ -1,3 +1,7 @@
+---
+description: Read this file before implemeting or modifying authentication logic in the project.
+---
+
 # Authentication and Access Rules
 
 This project uses Clerk for all authentication and user management. Do not introduce other authentication providers, custom session logic, or manual auth flows.
