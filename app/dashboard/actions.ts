@@ -10,7 +10,14 @@ const createShortLinkSchema = z.object({
   url: z.string().trim().url("Please enter a valid URL."),
   shortCode: z
     .union([
-      z.string().trim().max(32, "Short code must be 32 characters or fewer.").regex(/^[a-zA-Z0-9-_]+$/, "Only letters, numbers, hyphens, and underscores are allowed."),
+      z
+        .string()
+        .trim()
+        .max(32, "Short code must be 32 characters or fewer.")
+        .regex(
+          /^[a-zA-Z0-9-_]+$/,
+          "Only letters, numbers, hyphens, and underscores are allowed.",
+        ),
       z.literal(""),
     ])
     .optional(),
@@ -41,7 +48,10 @@ export async function createShortLinkAction(
 
   if (!validatedFields.success) {
     return {
-      error: validatedFields.error.flatten().fieldErrors.url?.[0] ?? validatedFields.error.flatten().fieldErrors.shortCode?.[0] ?? "Please review your form inputs.",
+      error:
+        validatedFields.error.flatten().fieldErrors.url?.[0] ??
+        validatedFields.error.flatten().fieldErrors.shortCode?.[0] ??
+        "Please review your form inputs.",
     };
   }
 
@@ -51,7 +61,7 @@ export async function createShortLinkAction(
     shortCode: validatedFields.data.shortCode,
   });
 
-  if ('error' in result) {
+  if ("error" in result) {
     return { error: result.error };
   }
 
@@ -68,7 +78,14 @@ const editShortLinkSchema = z.object({
   url: z.string().trim().url("Please enter a valid URL."),
   shortCode: z
     .union([
-      z.string().trim().max(32, "Short code must be 32 characters or fewer.").regex(/^[a-zA-Z0-9-_]+$/, "Only letters, numbers, hyphens, and underscores are allowed."),
+      z
+        .string()
+        .trim()
+        .max(32, "Short code must be 32 characters or fewer.")
+        .regex(
+          /^[a-zA-Z0-9-_]+$/,
+          "Only letters, numbers, hyphens, and underscores are allowed.",
+        ),
       z.literal(""),
     ])
     .optional(),
@@ -92,7 +109,10 @@ export async function editShortLinkAction(
 
   if (!validatedFields.success) {
     return {
-      error: validatedFields.error.flatten().fieldErrors.url?.[0] ?? validatedFields.error.flatten().fieldErrors.shortCode?.[0] ?? "Please review your form inputs.",
+      error:
+        validatedFields.error.flatten().fieldErrors.url?.[0] ??
+        validatedFields.error.flatten().fieldErrors.shortCode?.[0] ??
+        "Please review your form inputs.",
     };
   }
 
@@ -103,7 +123,7 @@ export async function editShortLinkAction(
     shortCode: validatedFields.data.shortCode,
   });
 
-  if ('error' in result) {
+  if ("error" in result) {
     return { error: result.error };
   }
 
@@ -142,7 +162,7 @@ export async function deleteShortLinkAction(
     id: validatedFields.data.id,
   });
 
-  if ('error' in result) {
+  if ("error" in result) {
     return { error: result.error };
   }
 

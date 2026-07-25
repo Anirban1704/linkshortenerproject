@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "hooks": {
+    "postToolUse": [
+      {
+        "type": "command",
+        "powershell": ".github\\hooks\\run-format-if-create-edit.ps1"
+      }
+    ]
+  }
+}

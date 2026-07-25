@@ -12,7 +12,11 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
-import { deleteShortLinkAction, editShortLinkAction, type ShortLinkActionState } from "./actions";
+import {
+  deleteShortLinkAction,
+  editShortLinkAction,
+  type ShortLinkActionState,
+} from "./actions";
 
 type LinkListItemProps = {
   link: {
@@ -39,8 +43,14 @@ function formatDate(value: Date | string | null | undefined) {
 }
 
 export function LinkListItem({ link }: LinkListItemProps) {
-  const [editState, editAction, editPending] = useActionState(editShortLinkAction, initialState);
-  const [deleteState, deleteAction, deletePending] = useActionState(deleteShortLinkAction, initialState);
+  const [editState, editAction, editPending] = useActionState(
+    editShortLinkAction,
+    initialState,
+  );
+  const [deleteState, deleteAction, deletePending] = useActionState(
+    deleteShortLinkAction,
+    initialState,
+  );
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
 
@@ -66,12 +76,17 @@ export function LinkListItem({ link }: LinkListItemProps) {
         >
           {link.url}
         </a>
-        <p className="text-sm text-zinc-500">Created {formatDate(link.createdAt)}</p>
+        <p className="text-sm text-zinc-500">
+          Created {formatDate(link.createdAt)}
+        </p>
 
         <div className="flex flex-wrap justify-center gap-3">
           <Dialog open={isEditOpen} onOpenChange={setIsEditOpen}>
             <DialogTrigger
-              className={cn(buttonVariants({ variant: "ghost", size: "sm" }), "text-sm")}
+              className={cn(
+                buttonVariants({ variant: "ghost", size: "sm" }),
+                "text-sm",
+              )}
             >
               Edit
             </DialogTrigger>
@@ -96,7 +111,10 @@ export function LinkListItem({ link }: LinkListItemProps) {
                 <input type="hidden" name="id" value={link.id} />
 
                 <div className="space-y-2">
-                  <label htmlFor={`edit-url-${link.id}`} className="text-sm font-medium text-zinc-200">
+                  <label
+                    htmlFor={`edit-url-${link.id}`}
+                    className="text-sm font-medium text-zinc-200"
+                  >
                     Destination URL
                   </label>
                   <input
@@ -110,7 +128,10 @@ export function LinkListItem({ link }: LinkListItemProps) {
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor={`edit-short-code-${link.id}`} className="text-sm font-medium text-zinc-200">
+                  <label
+                    htmlFor={`edit-short-code-${link.id}`}
+                    className="text-sm font-medium text-zinc-200"
+                  >
                     Short code (optional)
                   </label>
                   <input
@@ -128,11 +149,18 @@ export function LinkListItem({ link }: LinkListItemProps) {
                 ) : null}
 
                 {editState.message ? (
-                  <p className="text-sm text-emerald-400">{editState.message}</p>
+                  <p className="text-sm text-emerald-400">
+                    {editState.message}
+                  </p>
                 ) : null}
 
                 <div className="flex justify-end gap-2">
-                  <Button type="button" variant="ghost" size="sm" onClick={() => setIsEditOpen(false)}>
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => setIsEditOpen(false)}
+                  >
                     Cancel
                   </Button>
                   <Button type="submit" size="sm" disabled={editPending}>
@@ -145,7 +173,10 @@ export function LinkListItem({ link }: LinkListItemProps) {
 
           <Dialog open={isDeleteOpen} onOpenChange={setIsDeleteOpen}>
             <DialogTrigger
-              className={cn(buttonVariants({ variant: "destructive", size: "sm" }), "text-sm")}
+              className={cn(
+                buttonVariants({ variant: "destructive", size: "sm" }),
+                "text-sm",
+              )}
             >
               Delete
             </DialogTrigger>
@@ -154,7 +185,8 @@ export function LinkListItem({ link }: LinkListItemProps) {
                 <div>
                   <DialogTitle>Delete short link</DialogTitle>
                   <DialogDescription>
-                    This action cannot be undone. Are you sure you want to delete this link?
+                    This action cannot be undone. Are you sure you want to
+                    delete this link?
                   </DialogDescription>
                 </div>
                 <DialogCloseButton />
@@ -174,14 +206,26 @@ export function LinkListItem({ link }: LinkListItemProps) {
                 ) : null}
 
                 {deleteState.message ? (
-                  <p className="text-sm text-emerald-400">{deleteState.message}</p>
+                  <p className="text-sm text-emerald-400">
+                    {deleteState.message}
+                  </p>
                 ) : null}
 
                 <div className="flex justify-end gap-2">
-                  <Button type="button" variant="ghost" size="sm" onClick={() => setIsDeleteOpen(false)}>
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => setIsDeleteOpen(false)}
+                  >
                     Cancel
                   </Button>
-                  <Button type="submit" variant="destructive" size="sm" disabled={deletePending}>
+                  <Button
+                    type="submit"
+                    variant="destructive"
+                    size="sm"
+                    disabled={deletePending}
+                  >
                     {deletePending ? "Deleting..." : "Delete link"}
                   </Button>
                 </div>

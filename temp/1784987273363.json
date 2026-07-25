@@ -1,0 +1,11 @@
+﻿{
+  "sessionId": "9531e057-dcd0-4ddf-94f4-cf6eb543a9aa",
+  "timestamp": 1784987272894,
+  "cwd": "C:\\Users\\anirb\\VsCode\\MyMCP\\linkshortenerproject",
+  "toolName": "edit",
+  "toolArgs": "{\"path\":\"C:\\\\Users\\\\anirb\\\\VsCode\\\\MyMCP\\\\linkshortenerproject\\\\app\\\\layout.tsx\",\"old_str\":\"          <header className=\\\"flex items-center justify-between gap-3 border-b border-zinc-800 bg-zinc-950/95 px-6 py-4 text-zinc-50\\\">\",\"new_str\":\"          <header className=\\\"sticky top-0 z-50 flex items-center justify-between gap-3 border-b border-zinc-800 bg-zinc-950/95 px-6 py-4 text-zinc-50\\\">\"}",
+  "toolResult": {
+    "resultType": "success",
+    "textResultForLlm": "File C:\\Users\\anirb\\VsCode\\MyMCP\\linkshortenerproject\\app\\layout.tsx updated with changes."
+  }
+}

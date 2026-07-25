@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "hooks": {
+    "postToolUse": [
+      {
+        "type": "command",
+        "powershell": "$timestamp = [DateTimeOffset]::UtcNow.ToUnixTimeMilliseconds(); New-Item -ItemType Directory -Path 'temp' -Force | Out-Null; $input | Out-File \"temp/$timestamp.json\" -Encoding utf8"
+      }
+    ]
+  }
+}

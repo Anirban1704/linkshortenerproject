@@ -9,7 +9,9 @@ import { cn } from "@/lib/utils";
 const Dialog = DialogPrimitive.Root;
 const DialogPortal = DialogPrimitive.Portal;
 
-type TriggerProps = React.ComponentPropsWithoutRef<typeof DialogPrimitive.Trigger> & {
+type TriggerProps = React.ComponentPropsWithoutRef<
+  typeof DialogPrimitive.Trigger
+> & {
   asChild?: boolean;
 };
 
@@ -22,16 +24,20 @@ function DialogTrigger({ asChild = false, children, ...props }: TriggerProps) {
     } catch {
       if (process.env.NODE_ENV !== "production") {
         console.error(
-          "DialogTrigger: `asChild` requires exactly one valid React element child."
+          "DialogTrigger: `asChild` requires exactly one valid React element child.",
         );
       }
-      return <DialogPrimitive.Trigger {...props}>{children}</DialogPrimitive.Trigger>;
+      return (
+        <DialogPrimitive.Trigger {...props}>{children}</DialogPrimitive.Trigger>
+      );
     }
 
     return <DialogPrimitive.Trigger render={renderElement} {...props} />;
   }
 
-  return <DialogPrimitive.Trigger {...props}>{children}</DialogPrimitive.Trigger>;
+  return (
+    <DialogPrimitive.Trigger {...props}>{children}</DialogPrimitive.Trigger>
+  );
 }
 
 function DialogOverlay({

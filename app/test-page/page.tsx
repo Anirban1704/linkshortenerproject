@@ -1,17 +1,10 @@
-import Link from "next/link";
-
-export const metadata = {
-  title: "Test Page",
-};
-
-export default function TestPage(): JSX.Element {
+export default function TestPage() {
   return (
-    <main className="p-8">
-      <h1 className="text-2xl font-bold">Test Page</h1>
-      <p className="mt-4">This is a simple test page at /test-page.</p>
-      <div className="mt-6">
-        <Link href="/" className="text-blue-600 hover:underline">Go home</Link>
+    <div className="flex items-center justify-center min-h-screen">
+      <div className="text-center">
+        <h1 className="text-4xl font-bold mb-4">Test Page</h1>
+        <p className="text-gray-600">This is your test page at /test-page</p>
       </div>
-    </main>
+    </div>
   );
 }

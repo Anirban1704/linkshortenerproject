@@ -8,7 +8,10 @@ import { createShortLinkAction, type CreateShortLinkState } from "./actions";
 const initialState: CreateShortLinkState = {};
 
 export function CreateLinkForm() {
-  const [state, formAction, isPending] = useActionState(createShortLinkAction, initialState);
+  const [state, formAction, isPending] = useActionState(
+    createShortLinkAction,
+    initialState,
+  );
 
   useEffect(() => {
     if (state.success) {
@@ -34,7 +37,10 @@ export function CreateLinkForm() {
       </div>
 
       <div className="space-y-2">
-        <label htmlFor="shortCode" className="text-sm font-medium text-zinc-200">
+        <label
+          htmlFor="shortCode"
+          className="text-sm font-medium text-zinc-200"
+        >
           Short code (optional)
         </label>
         <input

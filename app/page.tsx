@@ -20,10 +20,12 @@ export default async function Home() {
             </p>
             <div className="space-y-4">
               <h1 className="text-4xl font-semibold tracking-tight text-zinc-50 sm:text-5xl">
-                Shorten your URLs, track clicks, and keep every link under control.
+                Shorten your URLs, track clicks, and keep every link under
+                control.
               </h1>
               <p className="text-lg leading-8 text-zinc-400">
-                A polished link shortener with authentication, analytics-ready management, and a clean dashboard for modern workflows.
+                A polished link shortener with authentication, analytics-ready
+                management, and a clean dashboard for modern workflows.
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">
@@ -38,21 +40,30 @@ export default async function Home() {
 
           <div className="grid gap-4">
             <article className="rounded-3xl border border-zinc-800 bg-zinc-900 p-6 shadow-sm">
-              <h2 className="text-xl font-semibold text-zinc-50">Instant short links</h2>
+              <h2 className="text-xl font-semibold text-zinc-50">
+                Instant short links
+              </h2>
               <p className="mt-3 text-sm leading-6 text-zinc-400">
-                Turn long URLs into compact short links with a clean interface designed for speed.
+                Turn long URLs into compact short links with a clean interface
+                designed for speed.
               </p>
             </article>
             <article className="rounded-3xl border border-zinc-800 bg-zinc-900 p-6 shadow-sm">
-              <h2 className="text-xl font-semibold text-zinc-50">Authenticated dashboard</h2>
+              <h2 className="text-xl font-semibold text-zinc-50">
+                Authenticated dashboard
+              </h2>
               <p className="mt-3 text-sm leading-6 text-zinc-400">
-                Access your personal dashboard securely through Clerk and manage links in one place.
+                Access your personal dashboard securely through Clerk and manage
+                links in one place.
               </p>
             </article>
             <article className="rounded-3xl border border-zinc-800 bg-zinc-900 p-6 shadow-sm">
-              <h2 className="text-xl font-semibold text-zinc-50">Modern interface</h2>
+              <h2 className="text-xl font-semibold text-zinc-50">
+                Modern interface
+              </h2>
               <p className="mt-3 text-sm leading-6 text-zinc-400">
-                A sleek, responsive UI that keeps your workflow focused and easy to navigate.
+                A sleek, responsive UI that keeps your workflow focused and easy
+                to navigate.
               </p>
             </article>
           </div>
@@ -60,19 +71,30 @@ export default async function Home() {
 
         <section className="grid gap-6 sm:grid-cols-3">
           <div className="rounded-3xl border border-zinc-800 bg-zinc-900 p-6">
-            <h3 className="text-base font-semibold text-zinc-50">One-click creation</h3>
+            <h3 className="text-base font-semibold text-zinc-50">
+              One-click creation
+            </h3>
             <p className="mt-3 text-sm leading-6 text-zinc-400">
-              Create a new short URL instantly and share it anywhere.</p>
+              Create a new short URL instantly and share it anywhere.
+            </p>
           </div>
           <div className="rounded-3xl border border-zinc-800 bg-zinc-900 p-6">
-            <h3 className="text-base font-semibold text-zinc-50">Secure sessions</h3>
+            <h3 className="text-base font-semibold text-zinc-50">
+              Secure sessions
+            </h3>
             <p className="mt-3 text-sm leading-6 text-zinc-400">
-              Sign in with Clerk and keep your link collection protected and private.</p>
+              Sign in with Clerk and keep your link collection protected and
+              private.
+            </p>
           </div>
           <div className="rounded-3xl border border-zinc-800 bg-zinc-900 p-6">
-            <h3 className="text-base font-semibold text-zinc-50">Ready for growth</h3>
+            <h3 className="text-base font-semibold text-zinc-50">
+              Ready for growth
+            </h3>
             <p className="mt-3 text-sm leading-6 text-zinc-400">
-              Use a robust foundation built with Next.js, Clerk, and Tailwind to scale easily.</p>
+              Use a robust foundation built with Next.js, Clerk, and Tailwind to
+              scale easily.
+            </p>
           </div>
         </section>
       </div>

@@ -2,9 +2,7 @@
   "version": "8",
   "dialect": "postgres",
   "id": "736928da-20a2-459e-8211-050c23a9ea80",
-  "prevIds": [
-    "00000000-0000-0000-0000-000000000000"
-  ],
+  "prevIds": ["00000000-0000-0000-0000-000000000000"],
   "ddl": [
     {
       "isRlsEnabled": false,
@@ -121,9 +119,7 @@
       "table": "short_links"
     },
     {
-      "columns": [
-        "id"
-      ],
+      "columns": ["id"],
       "nameExplicit": false,
       "name": "short_links_pkey",
       "schema": "public",

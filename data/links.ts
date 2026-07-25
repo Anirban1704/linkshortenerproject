@@ -4,7 +4,10 @@ import { customAlphabet } from "nanoid";
 import { db } from "@/db";
 import { shortLinks } from "@/db/schema";
 
-const createShortCode = customAlphabet("0123456789abcdefghijklmnopqrstuvwxyz", 10);
+const createShortCode = customAlphabet(
+  "0123456789abcdefghijklmnopqrstuvwxyz",
+  10,
+);
 
 export async function getUserShortLinks(clerkUserId: string) {
   return db
@@ -49,7 +52,10 @@ export async function createShortLink({
       .limit(1);
 
     if (existingLink.length > 0) {
-      return { success: false as const, error: "That short code is already in use." };
+      return {
+        success: false as const,
+        error: "That short code is already in use.",
+      };
     }
   } else {
     while (true) {
@@ -93,11 +99,19 @@ export async function editShortLink({
     const existingLink = await db
       .select({ id: shortLinks.id })
       .from(shortLinks)
-      .where(and(eq(shortLinks.shortCode, requestedShortCode), eq(shortLinks.clerkUserId, clerkUserId)))
+      .where(
+        and(
+          eq(shortLinks.shortCode, requestedShortCode),
+          eq(shortLinks.clerkUserId, clerkUserId),
+        ),
+      )
       .limit(1);
 
     if (existingLink.length > 0 && existingLink[0]?.id !== id) {
-      return { success: false as const, error: "That short code is already in use." };
+      return {
+        success: false as const,
+        error: "That short code is already in use.",
+      };
     }
   }
 
