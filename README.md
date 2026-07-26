@@ -50,4 +50,3 @@ http://localhost:3000
 ## Notes
 
 - Keep branch-specific GitHub Copilot instructions separate from the generic `AGENTS.md` documentation.
-- Remove unrelated template content when preparing public-facing repository docs.
