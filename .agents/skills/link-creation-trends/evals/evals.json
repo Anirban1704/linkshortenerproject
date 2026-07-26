@@ -1,0 +1,23 @@
+{
+  "skill_name": "link-creation-trends",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Create a bar chart of how many links were created each month over the last 12 months using the database URL in the repo's .env file and save it as link_creation_trends.png.",
+      "expected_output": "A PNG chart file is created with monthly counts on the y-axis and month labels on the x-axis.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Plot the number of links created per month for the past year and export the chart to reports/link-trends.png.",
+      "expected_output": "The chart is written to the requested reports directory as a PNG file.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "I need a monthly link creation chart from the project database. Please use the connection string in .env and generate the PNG in the workspace root.",
+      "expected_output": "The script discovers the database URL from .env and exports a PNG chart in the workspace root.",
+      "files": []
+    }
+  ]
+}
